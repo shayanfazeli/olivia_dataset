@@ -5,12 +5,6 @@ This repository includes data sources used in OLIVIA project for region represen
 Olivia dataset is a collection of numerous data sources providing information regarding different regional attribtues,
 studying which can be of significant help to pandemic understanding and response analyses.
 
-## Live Repository
-The most recent version of the data files are available in the [live dataset gdrive repository](https://drive.google.com/drive/folders/1CfhgbPaWAvy_1FN8UqpMI6lGdL-6bJep?usp=sharing).
-
-## Documentation
-The package documentation is available at [this link](https://github.io/shayanfazeli/olivia_dataset/).
-
 ## Installation
 This package can be installed via pip:
 ```bash
@@ -21,6 +15,25 @@ or via the source:
 ```bash
 pip3 install -e .;
 ```
+
+## Getting Started
+The first step is to configure the package, please run the following command and insert the required information:
+
+```bash
+olivia_dataset_config
+```
+
+Afterwards, whenever you want to refresh the live repository, it is  sufficient to run the following command:
+
+```bash
+olivia_dataset_refresh
+```
+
+## Live Repository
+The most recent version of the data files are available in the [live dataset gdrive repository](https://drive.google.com/drive/folders/1CfhgbPaWAvy_1FN8UqpMI6lGdL-6bJep?usp=sharing).
+
+## Documentation
+The package documentation is available at [this link](https://github.io/shayanfazeli/olivia_dataset/).
 
 ## Citation
 
