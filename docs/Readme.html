@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>OLIVIA Dataset &mdash; Olivia-Dataset 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="static/js/html5shiv.min.js"></script>
+    <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+        <script src="static/jquery.js"></script>
+        <script src="static/underscore.js"></script>
+        <script src="static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Olivia-Dataset" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Olivia-Dataset
+          
+
+          
+            
+            <img src="static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#live-repository">Live Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#citation">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-sources">Data Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-data-repositories-available-online">Additional Data Repositories Available Online</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Olivia-Dataset</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>OLIVIA Dataset</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="sources/Readme.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="olivia-dataset">
+<h1>OLIVIA Dataset<a class="headerlink" href="#olivia-dataset" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This repository includes data sources used in OLIVIA project for region representations.
+Olivia dataset is a collection of numerous data sources providing information regarding different regional attribtues,
+studying which can be of significant help to pandemic understanding and response analyses.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>This package can be installed via pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3 install --upgrade olivia_dataset<span class="p">;</span>
+</pre></div>
+</div>
+<p>or via the source:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3 install -e .<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to configure the package, please run the following command and insert the required information:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>olivia_dataset_config
+</pre></div>
+</div>
+<p>Afterwards, whenever you want to refresh the live repository, it is  sufficient to run the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>olivia_dataset_refresh
+</pre></div>
+</div>
+</div>
+<div class="section" id="live-repository">
+<h2>Live Repository<a class="headerlink" href="#live-repository" title="Permalink to this headline">¶</a></h2>
+<p>The most recent version of the data files are available in the <a class="reference external" href="https://drive.google.com/drive/folders/1CfhgbPaWAvy_1FN8UqpMI6lGdL-6bJep?usp=sharing">live dataset gdrive repository</a>.</p>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>The package documentation is available at <a class="reference external" href="https://github.io/shayanfazeli/olivia_dataset/">this link</a>.</p>
+</div>
+<div class="section" id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h2>
+<p>Please use the following citation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">fazeli2020statistical</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Statistical</span> <span class="n">Analytics</span> <span class="ow">and</span> <span class="n">Regional</span> <span class="n">Representation</span> <span class="n">Learning</span> <span class="k">for</span> <span class="n">COVID</span><span class="o">-</span><span class="mi">19</span> <span class="n">Pandemic</span> <span class="n">Understanding</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Fazeli</span><span class="p">,</span> <span class="n">Shayan</span> <span class="ow">and</span> <span class="n">Moatamed</span><span class="p">,</span> <span class="n">Babak</span> <span class="ow">and</span> <span class="n">Sarrafzadeh</span><span class="p">,</span> <span class="n">Majid</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">arXiv</span> <span class="n">preprint</span> <span class="n">arXiv</span><span class="p">:</span><span class="mf">2008.07342</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-sources">
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Laboratory confirmed COVID-19 Associated Hospitalizations [<a class="reference external" href="https://gis.cdc.gov/grasp/covidnet/COVID19_5.html">link</a>]</p></li>
+<li><p>A Weekly Influenza Surveillance Report Prepared by the Influenza Division [<a class="reference external" href="https://gis.cdc.gov/grasp/covidnet/COVID19_1.html">link</a>]</p>
+<ul>
+<li><p>CAUTION: there are slight issues (e.g., a “434” value for New York has been recorded as “4334” in the data), that we need to be aware of.</p></li>
+</ul>
+</li>
+<li><p>COVID-19 Cases, Deaths, and Recoveries across the United States [<a class="reference external" href="https://coronavirus.1point3acres.com/">link</a>]</p></li>
+<li><p>US Census Data [<a class="reference external" href="https://www.kaggle.com/muonneutrino/us-census-demographic-data">link</a>]</p>
+<ul>
+<li><p>We have been utilizing this variant (and the file for Census 2017) shared by the Kaggle community, however,
+if one is interested, more recent data might be available in the <a class="reference external" href="https://data.census.gov/">official repository</a>.</p></li>
+</ul>
+</li>
+<li><p>US Mortality Rates by County 1980-2014</p>
+<ul>
+<li><p>The data sources: [<a class="reference external" href="http://ghdx.healthdata.org/record/ihme-data/united-states-mortality-rates-county-1980-2014">link</a>], [<a class="reference external" href="https://www.kaggle.com/IHME/us-countylevel-mortality/">link</a>]</p></li>
+<li><p>The way we use this dataset is deriving <em>static</em> county features using these age-standardized values.</p></li>
+</ul>
+</li>
+<li><p>Diversity Index of US counties [<a class="reference external" href="https://www.kaggle.com/mikejohnsonjr/us-counties-diversity-index">link</a>]</p>
+<ul>
+<li><p>Using the census data, we should be able to compute a more recent and more accurate values for county diversity indices, and
+end up not using this data.</p></li>
+</ul>
+</li>
+<li><p>US Drought Monitor [<a class="reference external" href="https://droughtmonitor.unl.edu/">link</a>], [<a class="reference external" href="https://www.kaggle.com/us-drought-monitor/united-states-droughts-by-county">link</a>]</p></li>
+<li><p>US ICU beds (evaluated by Kaiser Health News) [<a class="reference external" href="https://www.kaggle.com/jaimeblasco/icu-beds-by-county-in-the-us">link</a>]</p></li>
+<li><p>Election results [<a class="reference external" href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VOQCHQ">link</a>]</p>
+<ul>
+<li><p>To extract county-based features, we focused on 2016 which was the most recent US Presidential Election at the time,
+more information is currently available in Harvard Dataverse.</p></li>
+</ul>
+</li>
+<li><p>US Household Income Statistics [<a class="reference external" href="https://www.kaggle.com/goldenoakresearch/us-household-income-stats-geo-locations">link</a>]</p></li>
+<li><p>Food Business Features - From National Restaurants Association - State level [<a class="reference external" href="https://restaurant.org/research/state">link</a>]</p></li>
+<li><p>Life expectancy, obesity, and physical activity [<a class="reference external" href="http://www.healthdata.org/us-health/data-download">link</a>]</p></li>
+<li><p>Alcohol [<a class="reference external" href="http://www.healthdata.org/us-health/data-download">link</a>]</p></li>
+<li><p>Diabetes [<a class="reference external" href="http://www.healthdata.org/us-health/data-download">link</a>]</p></li>
+</ul>
+</div>
+<div class="section" id="additional-data-repositories-available-online">
+<h2>Additional Data Repositories Available Online<a class="headerlink" href="#additional-data-repositories-available-online" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University [<a class="reference external" href="https://github.com/CSSEGISandData/COVID-19">link</a>]]</p>
+<ul>
+<li><p>Links to the official state/county dashboards can be found there.</p></li>
+</ul>
+</li>
+<li><p>County-level Socioeconomic Data for Predictive Modeling of Epidemiological Effects - [<a class="reference external" href="https://github.com/JieYingWu/COVID-19_US_County-level_Summaries">link</a>]</p>
+<ul>
+<li><p>This is very similar to our effort in gathering regional features and attributes</p></li>
+<li><p>This dataset collection is different from ours. While sharing some key features such as covid-19 outcomes, these two datasets mainly complement each other.</p>
+<ul>
+<li><p>There are information on some additional features such as crime and education in this repository.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="Olivia-Dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Shayan Fazeli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
