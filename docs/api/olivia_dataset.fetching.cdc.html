@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>olivia_dataset.utilities package &mdash; Olivia-Dataset 1.0 documentation</title>
+  <title>olivia_dataset.fetching.cdc package &mdash; Olivia-Dataset 1.0 documentation</title>
   
 
   
@@ -27,7 +27,7 @@
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+    <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -139,13 +139,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>olivia_dataset.utilities package</li>
+      <li>olivia_dataset.fetching.cdc package</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/api/olivia_dataset.utilities.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/olivia_dataset.fetching.cdc.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -182,34 +182,28 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="olivia-dataset-utilities-package">
-<h1>olivia_dataset.utilities package<a class="headerlink" href="#olivia-dataset-utilities-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="olivia_dataset.utilities.web.html">olivia_dataset.utilities.web package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="olivia_dataset.utilities.web.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="olivia_dataset.utilities.web.html#module-olivia_dataset.utilities.web.download">olivia_dataset.utilities.web.download module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="olivia_dataset.utilities.web.html#module-olivia_dataset.utilities.web">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
+<div class="section" id="olivia-dataset-fetching-cdc-package">
+<h1>olivia_dataset.fetching.cdc package<a class="headerlink" href="#olivia-dataset-fetching-cdc-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-olivia_dataset.utilities.config">
-<span id="olivia-dataset-utilities-config-module"></span><h2>olivia_dataset.utilities.config module<a class="headerlink" href="#module-olivia_dataset.utilities.config" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-olivia_dataset.fetching.cdc.covid19_hospitalizations">
+<span id="olivia-dataset-fetching-cdc-covid19-hospitalizations-module"></span><h2>olivia_dataset.fetching.cdc.covid19_hospitalizations module<a class="headerlink" href="#module-olivia_dataset.fetching.cdc.covid19_hospitalizations" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="olivia_dataset.utilities.config.read_olivia_dataset_config">
-<span class="sig-prename descclassname"><span class="pre">olivia_dataset.utilities.config.</span></span><span class="sig-name descname"><span class="pre">read_olivia_dataset_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/olivia_dataset/utilities/config.html#read_olivia_dataset_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#olivia_dataset.utilities.config.read_olivia_dataset_config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="olivia_dataset.fetching.cdc.covid19_hospitalizations.retrieve_cdc_covid19_hospitalizations">
+<span class="sig-prename descclassname"><span class="pre">olivia_dataset.fetching.cdc.covid19_hospitalizations.</span></span><span class="sig-name descname"><span class="pre">retrieve_cdc_covid19_hospitalizations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/olivia_dataset/fetching/cdc/covid19_hospitalizations.html#retrieve_cdc_covid19_hospitalizations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#olivia_dataset.fetching.cdc.covid19_hospitalizations.retrieve_cdc_covid19_hospitalizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieving and preprocessing the CDC data from [<a class="reference external" href="https://gis.cdc.gov/grasp/covidnet/COVID19_5.html](https://gis.cdc.gov/grasp/covidnet/COVID19_5.html">https://gis.cdc.gov/grasp/covidnet/COVID19_5.html](https://gis.cdc.gov/grasp/covidnet/COVID19_5.html</a>).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="olivia_dataset.fetching.cdc.covid19_hospitalizations.retrieve_cdc_influenza_surveys">
+<span class="sig-prename descclassname"><span class="pre">olivia_dataset.fetching.cdc.covid19_hospitalizations.</span></span><span class="sig-name descname"><span class="pre">retrieve_cdc_influenza_surveys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/olivia_dataset/fetching/cdc/covid19_hospitalizations.html#retrieve_cdc_influenza_surveys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#olivia_dataset.fetching.cdc.covid19_hospitalizations.retrieve_cdc_influenza_surveys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieving and preprocessing the CDC data from [<a class="reference external" href="https://gis.cdc.gov/grasp/covidnet/COVID19_5.html](https://gis.cdc.gov/grasp/covidnet/COVID19_1.html">https://gis.cdc.gov/grasp/covidnet/COVID19_5.html](https://gis.cdc.gov/grasp/covidnet/COVID19_1.html</a>).</p>
+</dd></dl>
 
 </div>
-<div class="section" id="module-olivia_dataset.utilities">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-olivia_dataset.utilities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-olivia_dataset.fetching.cdc">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-olivia_dataset.fetching.cdc" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
