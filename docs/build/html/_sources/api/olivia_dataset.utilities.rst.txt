@@ -1,0 +1,29 @@
+olivia\_dataset.utilities package
+=================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   olivia_dataset.utilities.web
+
+Submodules
+----------
+
+olivia\_dataset.utilities.config module
+---------------------------------------
+
+.. automodule:: olivia_dataset.utilities.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: olivia_dataset.utilities
+   :members:
+   :undoc-members:
+   :show-inheritance:

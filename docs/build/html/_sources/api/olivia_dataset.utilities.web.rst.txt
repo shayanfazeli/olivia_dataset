@@ -1,0 +1,21 @@
+olivia\_dataset.utilities.web package
+=====================================
+
+Submodules
+----------
+
+olivia\_dataset.utilities.web.download module
+---------------------------------------------
+
+.. automodule:: olivia_dataset.utilities.web.download
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: olivia_dataset.utilities.web
+   :members:
+   :undoc-members:
+   :show-inheritance:

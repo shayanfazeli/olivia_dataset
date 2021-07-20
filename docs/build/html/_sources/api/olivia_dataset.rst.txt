@@ -1,0 +1,21 @@
+olivia\_dataset package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   olivia_dataset.bin
+   olivia_dataset.fetching
+   olivia_dataset.preprocessing
+   olivia_dataset.utilities
+
+Module contents
+---------------
+
+.. automodule:: olivia_dataset
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,21 @@
+olivia\_dataset.fetching.covid19\_outcomes package
+==================================================
+
+Submodules
+----------
+
+olivia\_dataset.fetching.covid19\_outcomes.point3acres module
+-------------------------------------------------------------
+
+.. automodule:: olivia_dataset.fetching.covid19_outcomes.point3acres
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: olivia_dataset.fetching.covid19_outcomes
+   :members:
+   :undoc-members:
+   :show-inheritance:

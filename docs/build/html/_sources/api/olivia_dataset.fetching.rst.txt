@@ -1,0 +1,19 @@
+olivia\_dataset.fetching package
+================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   olivia_dataset.fetching.cdc
+   olivia_dataset.fetching.covid19_outcomes
+
+Module contents
+---------------
+
+.. automodule:: olivia_dataset.fetching
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>olivia_dataset.fetching.cdc.covid19_hospitalizations &mdash; Olivia-Dataset 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Olivia-Dataset
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Readme.html">Information</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Olivia-Dataset</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>olivia_dataset.fetching.cdc.covid19_hospitalizations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for olivia_dataset.fetching.cdc.covid19_hospitalizations</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">from</span> <span class="nn">olivia_dataset.utilities.config</span> <span class="kn">import</span> <span class="n">read_olivia_dataset_config</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="retrieve_cdc_covid19_hospitalizations"><a class="viewcode-back" href="../../../../api/olivia_dataset.fetching.cdc.html#olivia_dataset.fetching.cdc.covid19_hospitalizations.retrieve_cdc_covid19_hospitalizations">[docs]</a><span class="k">def</span> <span class="nf">retrieve_cdc_covid19_hospitalizations</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieving and preprocessing the CDC data from [https://gis.cdc.gov/grasp/covidnet/COVID19_5.html](https://gis.cdc.gov/grasp/covidnet/COVID19_5.html).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># - retrieving the config</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">read_olivia_dataset_config</span><span class="p">()</span>
+    <span class="n">livedataset_repo</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;livedataset_repo&#39;</span><span class="p">]</span>
+
+    <span class="n">cache_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">),</span> <span class="s1">&#39;.olivia_dataset&#39;</span><span class="p">))</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">cache_folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">livedataset_repo</span><span class="p">,</span> <span class="s1">&#39;resolution&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;cdc_covid/covid_hospitalizations&#39;</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">livedataset_repo</span><span class="p">,</span> <span class="s1">&#39;resolution&#39;</span><span class="p">,</span>  <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;cdc_covid/covid_hospitalizations&#39;</span><span class="p">,</span> <span class="s1">&#39;all_covid19_hospitalizations.csv&#39;</span><span class="p">)</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    curl &#39;https://gis.cdc.gov/grasp/covid19_3_api/PostPhase03DataTool&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;authority: gis.cdc.gov&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;sec-ch-ua: &quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;91&quot;, &quot;Chromium&quot;;v=&quot;91&quot;&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;accept: application/json, text/plain, */*&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;sec-ch-ua-mobile: ?0&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;content-type: application/json;charset=UTF-8&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;origin: https://gis.cdc.gov&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;sec-fetch-site: same-origin&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;sec-fetch-mode: cors&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;sec-fetch-dest: empty&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;referer: https://gis.cdc.gov/grasp/covidnet/COVID19_3.html&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;accept-language: en-US,en;q=0.9,fa;q=0.8&#39; </span><span class="se">\</span>
+<span class="s2">      -H &#39;cookie: s_fid=1C93F28D0A1FCCE8-3035E413E6388A70; s_cc=true; TS01fffff8=015d0abe87d01b0abd95773a7beb71a0736c8b11edb95869efdae8398d8fa5f5c28b94efeca7211a2f298b2a60db323c3fc806c009; gpv_c54=https%3A</span><span class="si">%2F%2F</span><span class="s2">gis.cdc.gov</span><span class="si">%2F</span><span class="s2">grasp</span><span class="si">%2F</span><span class="s2">covidnet</span><span class="si">%2F</span><span class="s2">COVID19_3.html; s_vncm=1627801199082%26vn%3D2; s_ivc=true; s_lv_s=Less%20than</span><span class="si">%201%</span><span class="s2">20day; s_visit=1; s_ips=1292; gpv_v45=COVID-19%20Hospitalizations; s_sq=%5B%5BB%5D%5D; RT=&quot;z=1&amp;dm=cdc.gov&amp;si=jt2l7aorinh&amp;ss=kra0vsee&amp;sl=0&amp;tt=0&quot;; s_ptc=0.00</span><span class="si">%5E%5E</span><span class="s2">0.01</span><span class="si">%5E%5E</span><span class="s2">0.27</span><span class="si">%5E%5E</span><span class="s2">0.46</span><span class="si">%5E%5E</span><span class="s2">0.21</span><span class="si">%5E%5E</span><span class="s2">0.01</span><span class="si">%5E%5E</span><span class="s2">0.60</span><span class="si">%5E%5E</span><span class="s2">0.01</span><span class="si">%5E%5E</span><span class="s2">1.58; s_tp=2035; s_ppv=COVID-19%2520Hospitalizations%2C65%2C63%2C1317%2C1%2C1; arp_scroll_position=38; s_tps=11; s_pvs=10; s_lv=1626667256020&#39; </span><span class="se">\</span>
+<span class="s2">      --data-raw &#39;{&quot;appversion&quot;:&quot;Public&quot;,&quot;key&quot;:&quot;datadownload&quot;,&quot;injson&quot;:[]}&#39; </span><span class="se">\</span>
+<span class="s2">      --compressed&quot;&quot;&quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot; &gt; </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cache_folder</span><span class="p">,</span> <span class="s1">&#39;cdc_hospitalization.json&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">      &quot;&quot;&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cache_folder</span><span class="p">,</span> <span class="s1">&#39;cdc_hospitalization.json&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datadownload&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span>
+        <span class="s1">&#39;mmwr-week&#39;</span><span class="p">:</span> <span class="s1">&#39;MMWR-WEEK&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;mmwr-year&#39;</span><span class="p">:</span> <span class="s1">&#39;MMWR-YEAR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;age_category&#39;</span><span class="p">:</span> <span class="s1">&#39;AGE CATEGORY&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;catchment&#39;</span><span class="p">:</span> <span class="s1">&#39;CATCHMENT&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weekly-rate&#39;</span><span class="p">:</span> <span class="s1">&#39;WEEKLY RATE &#39;</span><span class="p">,</span>
+        <span class="s1">&#39;cumulative-rate&#39;</span><span class="p">:</span> <span class="s1">&#39;CUMULATIVE RATE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;network&#39;</span><span class="p">:</span> <span class="s1">&#39;NETWORK&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="s1">&#39;YEAR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sex_category&#39;</span><span class="p">:</span> <span class="s1">&#39;SEX&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;race_category&#39;</span><span class="p">:</span> <span class="s1">&#39;RACE&#39;</span>
+    <span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the cdc covid hospitalizations file has been successfully saved into </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="retrieve_cdc_influenza_surveys"><a class="viewcode-back" href="../../../../api/olivia_dataset.fetching.cdc.html#olivia_dataset.fetching.cdc.covid19_hospitalizations.retrieve_cdc_influenza_surveys">[docs]</a><span class="k">def</span> <span class="nf">retrieve_cdc_influenza_surveys</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieving and preprocessing the CDC data from [https://gis.cdc.gov/grasp/covidnet/COVID19_5.html](https://gis.cdc.gov/grasp/covidnet/COVID19_1.html).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># - retrieving the config</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">read_olivia_dataset_config</span><span class="p">()</span>
+    <span class="n">livedataset_repo</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;livedataset_repo&#39;</span><span class="p">]</span>
+
+    <span class="n">cache_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">),</span> <span class="s1">&#39;.olivia_dataset&#39;</span><span class="p">))</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">cache_folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">livedataset_repo</span><span class="p">,</span> <span class="s1">&#39;resolution&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;cdc_covid/weekly_influenza_surveillance&#39;</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">livedataset_repo</span><span class="p">,</span> <span class="s1">&#39;resolution&#39;</span><span class="p">,</span>  <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;cdc_covid/weekly_influenza_surveillance&#39;</span><span class="p">,</span> <span class="s1">&#39;influenza_survey.csv&#39;</span><span class="p">)</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    curl &#39;https://gis.cdc.gov/grasp/covid19_1_api/Phase1DownloadDataP/60,59,1&#39; </span><span class="se">\</span>
+<span class="s2">  -H &#39;authority: gis.cdc.gov&#39; </span><span class="se">\</span>
+<span class="s2">  -H &#39;sec-ch-ua: &quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;91&quot;, &quot;Chromium&quot;;v=&quot;91&quot;&#39; </span><span class="se">\</span>
+<span class="s2">  -H &#39;accept: application/json, text/plain, */*&#39; </span><span class="se">\</span>
+<span class="s2">  -H &#39;sec-ch-ua-mobile: ?0&#39; </span><span class="se">\</span>
+<span class="s2">  -H &#39;user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36&#39; </span><span class="se">\</span>
+<span class="s2">  -H &#39;sec-fetch-site: same-origin&#39; </span><span class="se">\</span>
+<span class="s2">  -H &#39;sec-fetch-mode: cors&#39; </span><span class="se">\</span>
+<span class="s2">  -H &#39;sec-fetch-dest: empty&#39; </span><span class="se">\</span>
+<span class="s2">  -H &#39;referer: https://gis.cdc.gov/grasp/covidnet/COVID19_1.html&#39; </span><span class="se">\</span>
+<span class="s2">  -H &#39;accept-language: en-US,en;q=0.9,fa;q=0.8&#39; </span><span class="se">\</span>
+<span class="s2">  -H &#39;cookie: s_fid=1C93F28D0A1FCCE8-3035E413E6388A70; s_cc=true; s_vncm=1627801199082%26vn%3D2; s_ivc=true; s_lv_s=Less%20than</span><span class="si">%201%</span><span class="s2">20day; s_visit=1; s_ips=1279; arp_scroll_position=0; s_sq=%5B%5BB%5D%5D; TS01fffff8=015d0abe87d3498655bd8cae5167a43d0070f2e12dd2af8698e99c1b5fc367fcad3772f8337e6b1200df9ec256670c3bd8a542ef49; gpv_v45=COVID-Net%20State%20Activity%20Indicator%20Map; gpv_c54=https%3A</span><span class="si">%2F%2F</span><span class="s2">gis.cdc.gov</span><span class="si">%2F</span><span class="s2">grasp</span><span class="si">%2F</span><span class="s2">covidnet</span><span class="si">%2F</span><span class="s2">COVID19_1.html</span><span class="si">%23a</span><span class="s2">50; RT=&quot;z=1&amp;dm=cdc.gov&amp;si=65zuw9kllki&amp;ss=kra0vsee&amp;sl=0&amp;tt=0&quot;; s_ptc=0.00</span><span class="si">%5E%5E</span><span class="s2">0.00</span><span class="si">%5E%5E</span><span class="s2">0.00</span><span class="si">%5E%5E</span><span class="s2">0.00</span><span class="si">%5E%5E</span><span class="s2">0.06</span><span class="si">%5E%5E</span><span class="s2">0.01</span><span class="si">%5E%5E</span><span class="s2">0.32</span><span class="si">%5E%5E</span><span class="s2">0.01</span><span class="si">%5E%5E</span><span class="s2">0.41; s_tp=1683; s_ppv=COVID-Net%2520State%2520Activity%2520Indicator%2520Map%2C76%2C76%2C1279%2C1%2C1; s_tps=68; s_pvs=1178; s_lv=1626668480844&#39; </span><span class="se">\</span>
+<span class="s2">  --compressed &quot;&quot;&quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot; &gt; </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cache_folder</span><span class="p">,</span> <span class="s1">&#39;influenza_surveys.json&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">      &quot;&quot;&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cache_folder</span><span class="p">,</span> <span class="s1">&#39;influenza_surveys.json&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">handle</span><span class="p">))</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datadownload&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span>
+        <span class="s1">&#39;statename&#39;</span><span class="p">:</span> <span class="s1">&#39;STATENAME&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;activity_level&#39;</span><span class="p">:</span> <span class="s1">&#39;ACTIVITY LEVEL&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weeknumber&#39;</span><span class="p">:</span> <span class="s1">&#39;WEEK&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;URL&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weekend&#39;</span><span class="p">:</span> <span class="s1">&#39;WEEKEND&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;website&#39;</span><span class="p">:</span> <span class="s1">&#39;WEBSITE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;season&#39;</span><span class="p">:</span> <span class="s1">&#39;SEASON&#39;</span>
+    <span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the cdc covid hospitalizations file has been successfully saved into </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Shayan Fazeli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

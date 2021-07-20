@@ -1,0 +1,21 @@
+olivia\_dataset.fetching.cdc package
+====================================
+
+Submodules
+----------
+
+olivia\_dataset.fetching.cdc.covid19\_hospitalizations module
+-------------------------------------------------------------
+
+.. automodule:: olivia_dataset.fetching.cdc.covid19_hospitalizations
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: olivia_dataset.fetching.cdc
+   :members:
+   :undoc-members:
+   :show-inheritance:
