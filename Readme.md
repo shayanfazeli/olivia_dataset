@@ -92,4 +92,5 @@ Please use the following citation:
     * This dataset collection is different from ours. While sharing some key features such as covid-19 outcomes, these two datasets mainly complement each other. 
         * There are information on some additional features such as crime and education in this repository.
     
-    
+* KFF Data Repository
+    * This data includes vaccincation related information, as well as policy-related information - [[link](https://github.com/KFFData/COVID-19-Data)]
