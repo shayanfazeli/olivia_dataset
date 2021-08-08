@@ -39,6 +39,7 @@ The package documentation is available at [this link](https://github.io/shayanfa
 
 Please use the following citation:
 ```
+[To be published in IEEE ICHI 2021]
 @article{fazeli2020statistical,
   title={Statistical Analytics and Regional Representation Learning for COVID-19 Pandemic Understanding},
   author={Fazeli, Shayan and Moatamed, Babak and Sarrafzadeh, Majid},
