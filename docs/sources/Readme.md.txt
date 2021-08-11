@@ -33,18 +33,13 @@ olivia_dataset_refresh
 The most recent version of the data files are available in the [live dataset gdrive repository](https://drive.google.com/drive/folders/1CfhgbPaWAvy_1FN8UqpMI6lGdL-6bJep?usp=sharing).
 
 ## Documentation
-The package documentation is available at [this link](https://github.io/shayanfazeli/olivia_dataset/).
+The package documentation is available at [this link](https://shayanfazeli.github.io/olivia_dataset/).
 
 ## Citation
 
 Please use the following citation:
 ```
-@article{fazeli2020statistical,
-  title={Statistical Analytics and Regional Representation Learning for COVID-19 Pandemic Understanding},
-  author={Fazeli, Shayan and Moatamed, Babak and Sarrafzadeh, Majid},
-  journal={arXiv preprint arXiv:2008.07342},
-  year={2020}
-}
+[To be published in IEEE ICHI 2021]
 ```
 
 ## Data Sources
@@ -92,4 +87,5 @@ Please use the following citation:
     * This dataset collection is different from ours. While sharing some key features such as covid-19 outcomes, these two datasets mainly complement each other. 
         * There are information on some additional features such as crime and education in this repository.
     
-    
+* KFF Data Repository
+    * This data includes vaccincation related information, as well as policy-related information - [[link](https://github.com/KFFData/COVID-19-Data)]
