@@ -33,7 +33,7 @@ olivia_dataset_refresh
 The most recent version of the data files are available in the [live dataset gdrive repository](https://drive.google.com/drive/folders/1CfhgbPaWAvy_1FN8UqpMI6lGdL-6bJep?usp=sharing).
 
 ## Documentation
-The package documentation is available at [this link](https://github.io/shayanfazeli/olivia_dataset/).
+The package documentation is available at [this link](https://shayanfazeli.github.io/olivia_dataset/).
 
 ## Citation
 
