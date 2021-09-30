@@ -2,7 +2,7 @@
 import argparse
 import os
 import sys
-sys.path.append('/Users/mednet_machine/PHOENIX/ai_health_informatics/pandemic_modeling/olivia_dataset')
+
 import json
 import pandas
 

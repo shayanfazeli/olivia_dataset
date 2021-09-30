@@ -2,7 +2,7 @@ import argparse
 import pandas
 import time
 import os, sys
-sys.path.append('/Users/mednet_machine/PHOENIX/ai_health_informatics/pandemic_modeling/olivia_dataset')
+
 from olivia_dataset.fetching.police_shooting.utilities import get_county
 import numpy
 from tqdm import tqdm
