@@ -222,3 +222,4 @@ wordcloud==1.8.1
 wrapt==1.12.1
 WTForms==2.3.3
 zict==2.0.0
+epiweeks

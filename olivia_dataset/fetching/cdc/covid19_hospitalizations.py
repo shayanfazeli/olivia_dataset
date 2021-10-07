@@ -4,6 +4,7 @@ import numpy
 import pandas
 import os
 import json
+from epiweeks import Week
 
 from olivia_dataset.utilities.config import read_olivia_dataset_config
 
@@ -62,6 +63,9 @@ def retrieve_cdc_covid19_hospitalizations() -> None:
         'sex_category': 'SEX',
         'race_category': 'RACE'
     }, axis=1, inplace=True)
+
+    # adding end date
+    df['MMWR-DATE'] = df.apply(lambda x: str(Week.fromstring(f"{x['MMWR-YEAR']}" + f"{int(x['MMWR-WEEK']):02d}").enddate()), axis=1)
 
     df.to_csv(filepath)
     logger.info(f"the cdc covid hospitalizations file has been successfully saved into {filepath}")
