@@ -2,7 +2,7 @@
 
 ## Introduction
 This repository includes data sources used in OLIVIA project for region representations.
-Olivia dataset is a collection of numerous data sources providing information regarding different regional attribtues,
+Olivia dataset is a collection of numerous data sources providing information regarding different regional attributes,
 studying which can be of significant help to pandemic understanding and response analyses.
 
 ## Installation
@@ -39,7 +39,14 @@ The package documentation is available at [this link](https://shayanfazeli.githu
 
 Please use the following citation:
 ```
-[To be published in IEEE ICHI 2021]
+@inproceedings{fazeli2021statistical,
+  title={Statistical Analytics and Regional Representation Learning for COVID-19 Pandemic Understanding},
+  author={Fazeli, Shayan and Moatamed, Babak and Sarrafzadeh, Majid},
+  booktitle={2021 IEEE 9th International Conference on Healthcare Informatics (ICHI)},
+  pages={248--257},
+  year={2021},
+  organization={IEEE}
+}
 ```
 
 ## Data Sources
@@ -77,6 +84,9 @@ Please use the following citation:
 * Alcohol [[link](http://www.healthdata.org/us-health/data-download)]
 
 * Diabetes [[link](http://www.healthdata.org/us-health/data-download)]
+
+* HRSA Health Center COVID-19 Vaccine Program Participants [[link](https://www.hrsa.gov/coronavirus/health-center-program/participants)]
+
 
 ## Additional Data Repositories Available Online
 * COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University [[link](https://github.com/CSSEGISandData/COVID-19)]]

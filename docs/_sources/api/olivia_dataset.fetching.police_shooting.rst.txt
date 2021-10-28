@@ -1,0 +1,21 @@
+olivia\_dataset.fetching.police\_shooting package
+=================================================
+
+Submodules
+----------
+
+olivia\_dataset.fetching.police\_shooting.utilities module
+----------------------------------------------------------
+
+.. automodule:: olivia_dataset.fetching.police_shooting.utilities
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: olivia_dataset.fetching.police_shooting
+   :members:
+   :undoc-members:
+   :show-inheritance:

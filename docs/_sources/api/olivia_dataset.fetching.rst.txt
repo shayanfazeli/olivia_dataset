@@ -9,6 +9,8 @@ Subpackages
 
    olivia_dataset.fetching.cdc
    olivia_dataset.fetching.covid19_outcomes
+   olivia_dataset.fetching.hrsa
+   olivia_dataset.fetching.police_shooting
 
 Module contents
 ---------------

@@ -78,6 +78,9 @@ Please use the following citation:
 
 * Diabetes [[link](http://www.healthdata.org/us-health/data-download)]
 
+* HRSA Health Center COVID-19 Vaccine Program Participants [[link](https://www.hrsa.gov/coronavirus/health-center-program/participants)]
+
+
 ## Additional Data Repositories Available Online
 * COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University [[link](https://github.com/CSSEGISandData/COVID-19)]]
     * Links to the official state/county dashboards can be found there.

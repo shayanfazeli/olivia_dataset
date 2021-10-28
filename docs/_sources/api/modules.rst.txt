@@ -5,3 +5,4 @@ olivia_dataset
    :maxdepth: 4
 
    olivia_dataset
+   setup

@@ -4,6 +4,14 @@ olivia\_dataset.bin package
 Submodules
 ----------
 
+olivia\_dataset.bin.add\_county\_to\_police\_shooting\_data module
+------------------------------------------------------------------
+
+.. automodule:: olivia_dataset.bin.add_county_to_police_shooting_data
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 olivia\_dataset.bin.olivia\_dataset\_config module
 --------------------------------------------------
 
