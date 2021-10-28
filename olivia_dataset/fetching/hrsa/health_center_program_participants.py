@@ -70,5 +70,7 @@ def retrieve_health_center_program_participants() -> None:
     full_df = pd.concat(full_df)
     full_df = full_df.loc[:, [e for e in full_df.columns if not e=='\n']]
 
+    full_df.reset_index(drop=True, inplace=True)
+
     full_df.to_csv(filepath)
     logger.info(f"the hrsa health center program participants file has been successfully saved into {filepath}")
