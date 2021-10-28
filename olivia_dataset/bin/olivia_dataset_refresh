@@ -2,11 +2,13 @@
 import argparse
 import os
 import sys
+
 import json
 import pandas
 
 from olivia_dataset.fetching.cdc import retrieve_cdc_covid19_hospitalizations, retrieve_cdc_influenza_surveys
 from olivia_dataset.fetching.covid19_outcomes import retrieve_us_covid19_cases_using_1point3acres_api
+from olivia_dataset.fetching.hrsa.health_center_program_participants import retrieve_health_center_program_participants
 
 import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -34,6 +36,9 @@ if __name__ == "__main__":
 
     logger.info(">> [update in progress]: COVID-19 occurrences across the United States")
     retrieve_us_covid19_cases_using_1point3acres_api()
+
+    logger.info(">> [update in progress]: HRSA State-level Health Center Program Participants")
+    retrieve_health_center_program_participants()
 
     if os.path.isfile(os.path.join(livedataset_repo, "resolution/county/google_mobility_raw.csv")):
         logger.info(">> [update in progress]: Google community reports on mobility categories")
