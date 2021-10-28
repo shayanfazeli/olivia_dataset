@@ -145,7 +145,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/api/olivia_dataset.fetching.police_shooting.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../sources/api/olivia_dataset.fetching.police_shooting.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -191,7 +191,7 @@
 <span id="olivia-dataset-fetching-police-shooting-utilities-module"></span><h2>olivia_dataset.fetching.police_shooting.utilities module<a class="headerlink" href="#module-olivia_dataset.fetching.police_shooting.utilities" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="olivia_dataset.fetching.police_shooting.utilities.fetch_most_uptodate_police_shooting_data">
-<span class="sig-prename descclassname"><span class="pre">olivia_dataset.fetching.police_shooting.utilities.</span></span><span class="sig-name descname"><span class="pre">fetch_most_uptodate_police_shooting_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="reference internal" href="../_modules/olivia_dataset/fetching/police_shooting/utilities.html#fetch_most_uptodate_police_shooting_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#olivia_dataset.fetching.police_shooting.utilities.fetch_most_uptodate_police_shooting_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">olivia_dataset.fetching.police_shooting.utilities.</span></span><span class="sig-name descname"><span class="pre">fetch_most_uptodate_police_shooting_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="reference internal" href="../modules/olivia_dataset/fetching/police_shooting/utilities.html#fetch_most_uptodate_police_shooting_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#olivia_dataset.fetching.police_shooting.utilities.fetch_most_uptodate_police_shooting_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieving the police shooting data and adding the county column.
 If ran using 1-thread, it takes ~1 hour to complete.</p>
 <p>The dataframe which includes county column.</p>
@@ -199,7 +199,7 @@ If ran using 1-thread, it takes ~1 hour to complete.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="olivia_dataset.fetching.police_shooting.utilities.get_county">
-<span class="sig-prename descclassname"><span class="pre">olivia_dataset.fetching.police_shooting.utilities.</span></span><span class="sig-name descname"><span class="pre">get_county</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/olivia_dataset/fetching/police_shooting/utilities.html#get_county"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#olivia_dataset.fetching.police_shooting.utilities.get_county" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">olivia_dataset.fetching.police_shooting.utilities.</span></span><span class="sig-name descname"><span class="pre">get_county</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../modules/olivia_dataset/fetching/police_shooting/utilities.html#get_county"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#olivia_dataset.fetching.police_shooting.utilities.get_county" title="Permalink to this definition">¶</a></dt>
 <dd><p>county adding</p>
 </dd></dl>
 
@@ -212,7 +212,7 @@ df = fetch_most_uptodate_police_shooting_data()</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="olivia_dataset.fetching.police_shooting.utilities.retrieve_police_shooting_data">
-<span class="sig-prename descclassname"><span class="pre">olivia_dataset.fetching.police_shooting.utilities.</span></span><span class="sig-name descname"><span class="pre">retrieve_police_shooting_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/olivia_dataset/fetching/police_shooting/utilities.html#retrieve_police_shooting_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#olivia_dataset.fetching.police_shooting.utilities.retrieve_police_shooting_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">olivia_dataset.fetching.police_shooting.utilities.</span></span><span class="sig-name descname"><span class="pre">retrieve_police_shooting_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../modules/olivia_dataset/fetching/police_shooting/utilities.html#retrieve_police_shooting_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#olivia_dataset.fetching.police_shooting.utilities.retrieve_police_shooting_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieving the county-included police shooting data.</p>
 <p>__Remark__: There might be location-based incompatibiltiies given that the county value does come from the
 coordinates. If incompatible, one option is to use the county’s state instead of the recorded one. A decision
